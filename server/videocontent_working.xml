@@ -1,0 +1,18 @@
+﻿<?xml version = "1.0" encoding = "utf-8" standalone = "yes" ?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<VideoContent >
+  <video 
+    title = "Baby Bach" 
+    description = "Baby Bach" 
+    hdposterurl = "https://static.notmet.net/roku_home_channel/logos/Baby_Einstein_logo_540x304.png"/>
+    streamformat  =  "m4v" 
+    url = "https://static.notmet.net/roku_home_channel/baby_einstein/2003%20-%20Baby%20Bach.m4v"/>
+  <video 
+    title = "Baby Neptune" 
+    description = "Baby Neptune" 
+    hdposterurl = "https://static.notmet.net/roku_home_channel/logos/Baby_Einstein_logo_540x304.png"/>
+    streamformat  =  "m4v" 
+    url = "https://static.notmet.net/roku_home_channel/baby_einstein/2003%20-%20Baby%20Neptune.m4v"/>
+</VideoContent>
