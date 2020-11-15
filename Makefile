@@ -1,2 +1,2 @@
 all:
-	zip -r Sickendick_Home_Channel.zip * -x Makefile
+	zip -r Your_Channel.zip * -x Makefile videocontent.xml LICENSE

@@ -21,7 +21,7 @@
       m.readVideoContentTask = createObject("RoSGNode","VideoContentReader")
       m.readVideoContentTask.observeField("videocontent","showvideolist")
       'm.readVideoContentTask.videocontenturi = "pkg:/server/videocontent.xml"
-      m.readVideoContentTask.videocontenturi = "https://static.notmet.net/roku_home_channel/videocontent.xml"
+      m.readVideoContentTask.videocontenturi = "https://YOURSERVERHERE/videocontent.xml"
       m.readVideoContentTask.control = "RUN" 
 
       m.videolist.observeField("itemFocused","setvideo")
