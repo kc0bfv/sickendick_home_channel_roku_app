@@ -1,2 +1,2 @@
 all:
-	zip -ur Sickendick_Home_Channel.zip *
+	zip -r Sickendick_Home_Channel.zip * -x Makefile
