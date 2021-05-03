@@ -4,6 +4,10 @@
 
 <component name = "VideoExampleScene" extends = "Scene" >
 
+  <interface>
+    <field id = "selecteditem" type = "node" />
+  </interface>
+
   <script type="text/brightscript" >
 
     <![CDATA[
@@ -15,6 +19,7 @@
       m.videoinfo = m.top.findNode("infoLabel")
       m.videoposter = m.top.findNode("videoPoster")
       m.video = m.top.findNode("exampleVideo")
+      m.sublist = createObject("RoSGNode", "ContentNode")
 
       m.video.observeField("state","controlvideoplay")
 
@@ -37,13 +42,19 @@
       videocontent = m.videolist.content.getChild(m.videolist.itemFocused)
       m.videoposter.uri = videocontent.hdposterurl
       m.videoinfo.text = videocontent.description
-      m.video.content = videocontent
+      m.top.selecteditem = videocontent
     end sub
 
     sub playvideo()
-      m.video.control = "play"
-      m.video.visible = true
-      m.video.setFocus(true)
+      if m.top.selecteditem.contenttype = 4
+        m.video.content = m.top.selecteditem
+        m.video.control = "play"
+        m.video.visible = true
+        m.video.setFocus(true)
+      else if m.top.selecteditem.contenttype = 2
+        m.videolist.content = m.top.selecteditem
+        m.videolist.setFocus(true)
+      end if
     end sub
 
     sub controlvideoplay()
@@ -61,6 +72,14 @@
             m.video.control = "stop"
             m.videolist.setFocus(true)
             m.video.visible = false
+
+            return true
+
+          else
+            if m.videolist.content.getField("title") = "TopLevelGoNoHigher_FordPrefect"
+              return false
+            end if
+            m.videolist.content = m.videolist.content.getParent()
 
             return true
           end if

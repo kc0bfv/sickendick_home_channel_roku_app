@@ -18,6 +18,7 @@
 
     sub readcontent()
       videocontent = createObject("RoSGNode","ContentNode")
+      videocontent.setField("title", "TopLevelGoNoHigher_FordPrefect")
 
       videocontentxml = createObject("roXMLElement")
 
@@ -34,13 +35,27 @@
       videocontentxml.parse(readInternet.GetToString())
 
       if videocontentxml.getName()="VideoContent"
-        for each video in videocontentxml.GetNamedElements("video")
-          videoitem = videocontent.createChild("ContentNode")
-          videoitem.setFields(video.getAttributes())
-        end for
+        build_vid_list(videocontent, videocontentxml)
       end if
 
       m.top.videocontent = videocontent
+    end sub
+
+    sub build_vid_list(parent_content_node, parent_xml_elem)
+      'This function recursively builds a video list as content nodes
+
+      for each childElem in parent_xml_elem.getChildElements()
+        if childElem.getName() = "video"
+          item = parent_content_node.createChild("ContentNode")
+          item.setFields(childElem.getAttributes())
+          item.setField("contenttype", "episode")
+        else if childElem.getName() = "sublist"
+          item = parent_content_node.createChild("ContentNode")
+          item.setFields(childElem.getAttributes())
+          item.setField("contenttype", "series")
+          build_vid_list(item, childElem)
+        end if
+      end for
     end sub
 
     ]]>

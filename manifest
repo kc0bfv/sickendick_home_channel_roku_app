@@ -1,9 +1,9 @@
 '********** Copyright 2016 Roku Corp.  All Rights Reserved. **********
 
 title=Sickendick Home Channel
-subtitle=Baby Einstein!
+subtitle=Sickendick Home Channel
 major_version=1
-minor_version=0
+minor_version=1
 build_version=00000
 
 mm_icon_focus_hd=pkg:/images/ChannelLogo336x210.jpg
